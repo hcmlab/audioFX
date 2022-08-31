@@ -1,0 +1,28 @@
+# pyproject.toml
+
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "audioFX"
+version = "1.0.1"
+description = "Audio effects library."
+readme = "README.md"
+authors = [{ name = "Silvan Mertes", email = "silvan.mertes@informatik.uni-augsburg.de" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["audio", "fx", "flanger", "distortion", "tremolo", "flanger", "distortion", "wahwah", "chorus", "pitch", "griffin"]
+dependencies = [
+    "librosa>=0.9.2",
+    "SoundFile>=0.10.3.post1",
+    "numpy"
+]
+requires-python = ">=3.5"
+
+[project.urls]
+Homepage = "https://github.com/hcmlab/audio-fx"

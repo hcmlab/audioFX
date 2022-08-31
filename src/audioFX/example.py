@@ -1,8 +1,8 @@
-from dsp import RobotFx
+from Fx import Fx
 
 from librosa import load
 
-_WRITE_BACKEND = "scipy"
+_WRITE_BACKEND = "soundfile"
 
 if _WRITE_BACKEND == "scipy":
     import numpy as np
@@ -45,7 +45,7 @@ additional_parameters = {"pitch_semitones": 12.0,
 
 
 
-fx = RobotFx(sr)
+fx = Fx(sr)
 y = fx.process_audio(x, fx_factors, additional_parameters)
 
 if _WRITE_BACKEND == "scipy":
