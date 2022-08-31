@@ -13,7 +13,7 @@ pip install audioFX
 ## 3. Get started
 Here is a basic example on how to load a wave file, apply some effects and save the resulting audio:
 ```
-from audioFX import Fx
+from audioFX.Fx import Fx
 from librosa import load
 import soundfile
 
