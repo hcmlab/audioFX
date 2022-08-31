@@ -25,12 +25,12 @@ x, sr = load(infile)
 fx = Fx(sr)
 
 fx_chain = {"tremolo": 0.8,
-              "flanger": 0.2,
+              "flanger": 0.2
               }
 
 optional_parameters = {"flanger_frequency": 0.75,
                          "flanger_depth": 9.75,
-                         "flanger_delay": 0.9375,
+                         "flanger_delay": 0.9375
                          }
 
 y = fx.process_audio(x, fx_chain, optional_parameters)
@@ -38,7 +38,7 @@ soundfile.write(outfile, y, sr)
 
 ```
 
-First, with import audio-fx.Fx you import the FX processor of the audio-fx library.  
+First, with "from audioFX.Fx import Fx" you import the FX processor of the audio-fx library.  
 Instantiate the FX processor with fx = Fx(sr), where sr is the samplerate of the audio you work with.
 
 You define an effect chain through a dictionary. In the example above, the audio is first fed through a tremolo module, and then through a flanger module.
