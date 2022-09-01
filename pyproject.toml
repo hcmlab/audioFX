@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "audioFX"
-version = "1.0.3"
+version = "1.0.4"
 description = "Audio effects library."
 readme = "README.md"
 authors = [{ name = "Silvan Mertes", email = "silvan.mertes@informatik.uni-augsburg.de" }]

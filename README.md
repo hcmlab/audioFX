@@ -2,7 +2,9 @@
 
 ## 1. Description
 This python package contains functionality to apply a variety of effects to audio data.  
-[GitHub Repository](https://github.com/hcmlab/audio-fx) 
+[GitHub Repository](https://github.com/hcmlab/audio-fx) | 
+[PyPi Repository](https://pypi.org/project/audioFX/)
+
 
 ## 2. Installation
 Install via pip:
@@ -38,7 +40,7 @@ soundfile.write(outfile, y, sr)
 
 ```
 
-First, with "from audioFX.Fx import Fx" you import the FX processor of the audio-fx library.  
+First, with "from audioFX.Fx import Fx" you import the FX processor of the audioFX library.  
 Instantiate the FX processor with fx = Fx(sr), where sr is the samplerate of the audio you work with.
 
 You define an effect chain through a dictionary. In the example above, the audio is first fed through a tremolo module, and then through a flanger module.
