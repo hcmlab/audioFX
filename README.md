@@ -1,4 +1,4 @@
-![](res/logo.PNG)
+![](res/logo.png)
 
 # audioFX - A Python Library for Audio Effects
 
