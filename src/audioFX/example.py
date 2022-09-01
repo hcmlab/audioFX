@@ -21,7 +21,8 @@ x, sr = load(infile)
 fx_factors = {"pitch": 0.0,
               "tremolo": 0.0,
               "flanger": 0.0,
-              "griffin": 1.0
+              "griffin": 0.0,
+              "timestretch": 1.0
               }
 
 # Define dict to control additional parameters of the effects. If a parameter is not defined, the default value is used.

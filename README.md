@@ -1,4 +1,6 @@
-# Audio FX - A Python Library for Audio Effects
+![](res/logo.PNG)
+
+# audioFX - A Python Library for Audio Effects
 
 ## 1. Description
 This python package contains functionality to apply a variety of effects to audio data.  
@@ -65,6 +67,7 @@ Currently, audio-fx supports the effect types listed in the table below. We are 
 | chorus          | A classical chorus effect.                                                                                                                                                                                                 |
 | pitch           | Pitch shift on the original signal.  By using the dry/wet value in the effect chain, the original pitch and shifted pitch signals are merged together.                                                                     |
 | griffin         | This effect applies an sftf to the signal and converts the signal back by using the griffin-lim algorithm.  By restricting the iterations of griffin-lim (see optional parameters), you can achieve pretty robotic sounds. |
+| timestretch     | This effect allows you to make your audio slower/faster. Note: with this effect, the dry/wet value does work differently! It does not specify the portion of the effect, but the stretch-factor. E.g., if you set the value 2.0, the audio will be played in double speed.
 
 
 As described above, you can instantiate a dictionary to define further parameters for the effect chain.

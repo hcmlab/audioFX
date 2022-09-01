@@ -11,7 +11,8 @@ class Fx():
                              "tremolo": self.ge_tremolo,
                              "chorus": self.chorus,
                              "pitch": self.pitch,
-                             "griffin": self.griffin}
+                             "griffin": self.griffin,
+                             "timestretch": self.timestretch}
 
     def generate_wave_input(self, freq, length, rate=44100, phase=0.0):
         length = int(length * rate)
@@ -165,9 +166,16 @@ class Fx():
         audio_signal = np.append(audio_signal,pad)
         return audio_signal
 
+    def timestretch(self, input_signal, speed= 1.0):
+        audio_signal = librosa.effects.time_stretch(input_signal, rate=speed)
+        return audio_signal
+
     def process_audio(self, input_data, fx_chain, additional_parameters=None):
         y = input_data
         for fx, l in fx_chain.items():
             if l > 0.0:
-                y = np.float32(((1.0 - l) * y + l * self.fx_functions[fx](y, additional_parameters=additional_parameters)))
+                if fx == "timestretch":
+                    y = np.float32(self.fx_functions[fx](y, speed= l))
+                else:
+                    y = np.float32(((1.0 - l) * y + l * self.fx_functions[fx](y, additional_parameters=additional_parameters)))
         return y
