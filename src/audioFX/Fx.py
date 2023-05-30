@@ -12,7 +12,8 @@ class Fx():
                              "chorus": self.chorus,
                              "pitch": self.pitch,
                              "griffin": self.griffin,
-                             "timestretch": self.timestretch}
+                             "timestretch": self.timestretch,
+                             "timeshift": self.timeshift}
 
     def generate_wave_input(self, freq, length, rate=44100, phase=0.0):
         length = int(length * rate)
@@ -170,12 +171,22 @@ class Fx():
         audio_signal = librosa.effects.time_stretch(input_signal, rate=speed)
         return audio_signal
 
+    def timeshift(self, input_signal, shift_ms=10):
+        padding_signal_length = (self.framerate / 1000) * shift_ms
+        padding_signal = np.zeros(int(padding_signal_length),dtype=np.float32)
+        s1 = np.concatenate((padding_signal, input_signal), axis=0, dtype=np.float32)
+        s2 = np.concatenate(( input_signal, padding_signal), axis=0, dtype=np.float32)
+        out = np.add(s1,s2) / 2.0
+        return out
+
     def process_audio(self, input_data, fx_chain, additional_parameters=None):
         y = input_data
         for fx, l in fx_chain.items():
             if l > 0.0:
                 if fx == "timestretch":
                     y = np.float32(self.fx_functions[fx](y, speed= l))
+                elif fx == "timeshift":
+                    y = np.float32(self.fx_functions[fx](y, shift_ms=l))
                 else:
                     y = np.float32(((1.0 - l) * y + l * self.fx_functions[fx](y, additional_parameters=additional_parameters)))
         return y
